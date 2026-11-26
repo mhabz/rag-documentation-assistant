@@ -94,5 +94,6 @@ class QdrantRepository:
         return self._client.count(collection_name=self._collection, exact=True).count
 
     def delete_collection(self) -> None:
-        """Delete the collection and everything it contains."""
-        self._client.delete_collection(self._collection)
+        """Delete the collection and everything it contains, if it exists."""
+        if self._client.collection_exists(self._collection):
+            self._client.delete_collection(self._collection)
