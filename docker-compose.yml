@@ -1,0 +1,11 @@
+services:
+  qdrant:
+    image: qdrant/qdrant:v1.20.2
+    ports:
+      - "6333:6333"  # REST API and web dashboard
+    volumes:
+      - qdrant_storage:/qdrant/storage  # keeps the vectors when the container is removed
+    restart: unless-stopped
+
+volumes:
+  qdrant_storage:

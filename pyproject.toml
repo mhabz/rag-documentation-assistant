@@ -1,0 +1,38 @@
+[project]
+name = "rag-documentation-assistant"
+version = "0.1.0"
+description = "RAG assistant over the SEPA Direct Debit Core Rulebook, 100% local and free"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "pydantic-settings>=2.4",
+    "pymupdf>=2.1",
+    "qdrant-client>=1.20.0",
+    "sentence-transformers>=6.3.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.6",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "unit: fast tests, no external service",
+    "integration: needs a real model or an external service (Qdrant)",
+    "evaluation: measures RAG quality, slow",
+]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "D"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["D"]

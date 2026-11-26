@@ -1,0 +1,22 @@
+# Environment and caches
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.env
+
+# macOS
+.DS_Store
+
+# IDE and assistant files (technical, not part of the project)
+.idea/
+.claude/
+CLAUDE.md
+
+# Personal study notes (plan, cheatsheet, notes)
+docs/
+
+# Data (the PDF is not committed, see README)
+data/*
+*.pdf
+!data/.gitkeep
